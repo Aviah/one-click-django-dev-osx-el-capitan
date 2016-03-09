@@ -1,0 +1,5 @@
+
+alias site-up='sudo /usr/local/bin/./site-up.sh'
+alias site-reload='/usr/local/bin/./site-reload.sh'
+alias tail-logs='sudo /usr/local/bin/./tail-logs.sh'
+

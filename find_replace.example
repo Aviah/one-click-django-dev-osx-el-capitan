@@ -1,0 +1,14 @@
+# replace the "replace-with..." strings with the actual data
+# run this script from it's directory 
+
+# edit tp replace
+sed -i "" "s/PUB.IP.IP.IP/182.34.53.1/g" setup.sh scripts/fabfile.py
+sed -i "" "s/myusername/replace-with-your-username/g" setup.sh etc/httpd.conf etc/django-site-nginx scripts/django_projects.pth scripts/site-reload.sh scripts/tail-logs.sh scripts/fabfile.py
+
+# Optional, uncomment to replace
+sed -i "" "s/myprojects/django_sites/g" setup.sh etc/httpd.conf etc/django-site-nginx scripts/django_projects.pth scripts/site-reload.sh scripts/tail-logs.sh scripts/fabfile.py
+
+# Use the same site name you used for mysite on the server
+sed -i "" "s/mysite/cms_site/g" setup.sh scripts/django_projects.pth etc/django-site-nginx etc/httpd.conf scripts/site-reload.sh scripts/tail-logs.sh scripts/fabfile.py
+
+echo "Done"

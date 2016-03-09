@@ -1,0 +1,20 @@
+<VirtualHost *:8001>
+
+    ServerName 127.0.0.1
+    ServerAdmin webmaster@localhost
+    ServerSignature Off	
+
+    # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+    # error, crit, alert, emerg.
+    # It is also possible to configure the loglevel for particular
+    # modules, e.g.
+    #LogLevel info ssl:warn
+	ErrorLog /private/var/log/apache2/error_log_django_site
+	CustomLog /private/var/log/apache2/access_log_django_site combined
+	
+	
+
+
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
