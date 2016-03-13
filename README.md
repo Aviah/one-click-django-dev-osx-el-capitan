@@ -135,7 +135,7 @@ If not installed, run:
 #### Step 1: Install the server
 
 With the one-click-django-server scripts you can auto install the single-server django website on any Ubuntu VPS. The setup script installs and configures the server, a django website, and a git repository. This repository is cloned to the development environment.    
-Once the server is ready and the website works,  continue to the local dev environment on your Mac with OSX El-Capitan.
+Once the server is ready and the website works, continue to the local dev environment on your Mac with OSX El-Capitan.
 
 For the auto-install of the server, see [one-click-django-server](https://github.com/aviah/one-click-django-server/)
 
@@ -243,7 +243,7 @@ From the command line, make sure you are in the `one-click-django-dev-osx-el-cap
 *Note: The setup.sh will ask for the sudo password and MySQL root password*
 
 Thats' it! Browse to the local site at 127.0.0.1.
-If eveything works, you should see something like [this website example](it_works_osx_el_capitan.png)
+If eveything works, you should see something like [this website image](it_works_osx_el_capitan.png)
 
 
 **The project location:**
