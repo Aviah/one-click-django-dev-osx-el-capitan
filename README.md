@@ -4,6 +4,15 @@
 Server: Ubuntu 14.04 LTS    
 Local Dev Machine: OSX 10.11 El-Capitan
 
+[Why](#why)    
+[How?](#how)    
+[The Polls Tutorial with Deployment](#the-polls-tutorial-with-deployment)    
+[Pre-Requisits on your dev Mac](#pre-requisits-on-your-dev-mac)    
+[Install Prep](#install-pep)   
+[Auto Install](#auto-install)
+[What's Next](#whats-next) 
+
+
 ## Why?
 
 Tutorials usually start with a local website. But it's often more useful, and more fun, to see a real working website ASAP. With a real website you see something working early, you get a better feel for the progress, and you have something to demonstrate.  
@@ -15,17 +24,17 @@ Once installed, it's easy to continue with any django tutorial, and instantly de
 For the seasoned django developer, it's an easy way to have a new single server django website up and running, quickly.
 
 ## How?
-First Install the server with the [one-click-django-server](https://github.com/aviah/one-click-django-server/master/readme) (any Ubuntu VPS will do). Once the server works, and you can browse to the website, you can install the development environment.
+First auto-install the server with the script of [one-click-django-server](https://github.com/aviah/one-click-django-server). The script will auto-install a site on a clean slate Ubuntu VPS (any Ubuntu 14.04 VPS will do). Once the server works, and you can browse to the website, you can install the development environment.
 
 The one-click-django-dev scripts will clone the server repo, then install and configure a local website. For deployment, the script installs fabric and includes a simple fabric file with common deployment recipes.
 
-## Tutorial
+## The Polls Tutorial with Deployment
 
-If you are new to django, there is also a tutorial!   
+If you are new to django, there is also a tutorial.
  
 It's built on the official django polls tutorial, but here you learn on this real development-production environemnt. This version of the official polls tutorial includes working with git, deployment, and basic server troubleshooting.   
 
-So you will have the polls app working on a real website, at **www.yourdomain.com/polls**!
+So you will have the polls app working on a real website, at `www.yourdomain.com/polls`.
 
 
 ## Pre-Requisits on your dev Mac
@@ -88,7 +97,7 @@ If not installed, run:
 
 Everything is tested on Django 1.8.9, which is LTS version. If django is not installed, run:
 
-	you@mac-osx$ sudo -H pip Django==1.8.9
+	you@mac-osx$ sudo -H pip install Django==1.8.9
 	
 	
 ### MySQLdb (with pip)
@@ -109,15 +118,15 @@ If not installed, run:
 
 
 
-## Installation Prep
+## Install Prep
 
 
-#### Overview:  
+#### Overview  
 
-** Step 1: Install the server with-one-click-django-server **    
-** Step 2: OSX 10.11 El-Capitan with Pre-Requisits Ready **  
-** Step 3: Make sure you have SSH access to the server **  
-** Step 4: Download & prepare the one-click-django-dev config files**
+**Step 1: Install the server with-one-click-django-server**    
+**Step 2: OSX 10.11 El-Capitan with Pre-Requisits Ready**  
+**Step 3: Make sure you have SSH access to the server**  
+**Step 4: Download & prepare the one-click-django-dev config files**
 
 
 
@@ -126,7 +135,7 @@ If not installed, run:
 With the one-click-django-server scripts you can auto install the single-server django website on any Ubuntu VPS. The setup script installs and configures the server, a django website, and a git repository. This repository is cloned to the development environment.    
 Once the server is ready and the website works,  continue to the local dev environment on your Mac with OSX El-Capitan.
 
-For the auto install of the server, see [one-click-django-server](https://github.com/aviah/one-click-django-server/master/readme.md)
+For the auto-install of the server, see [one-click-django-server](https://github.com/aviah/one-click-django-server/)
 
 #### Step 2: Mac OSX 10.11 El-Capitan with Pre-Requistis
 
@@ -155,7 +164,7 @@ If you used **another machine** (not the Mac you are going to install the dev en
 		you@mac-osx$: chmod 700 ~/.ssh
 		you@mac-osx$: ssh-keygen -t rsa
 
-2. Copy the public key (~/.ssh/id_rsa.pub) to the machine you created the server with, and name the file dev_id_rsa.pub
+2. Copy the public key (`~/.ssh/id_rsa.pub`) to the machine you created the server with, and name the file dev_id_rsa.pub
 3. Upload this key to the server:
 
 		you@local-machine-with-acccess-to-server: scp dev_id_rsa.pub @PUB.IP.IP.IP:~/
@@ -167,6 +176,8 @@ If you used **another machine** (not the Mac you are going to install the dev en
 		you@my-django-server# cat dev_id_rsa.pub >> /home/django/.ssh/authorized_keys
 		you@my-django-server# exit
 		you@my-django-server$ rm dev_id_rsa.pub
+		
+**To use the project fabric script for deployment, please use SSH key without a passphrase.**
 
 
 
@@ -177,14 +188,14 @@ just the files.
 
 2. Open a command line, and cd to the one-click-django-dev directory
 
-       you@dev-machine$ cd one-click-django-dev-osx-el-capitan
+        you@dev-machine$ cd one-click-django-dev-osx-el-capitan
        
 3. Edit find_replace.sh with your actual ip, username etc:
 
         you@dev-machine$ nano find_replace.sh                                                 
        
        
-	In the editor, replace the items that start with "replace-with…" with 	your actual data.
+	In the editor, replace the items that start with `replace-with` with 	your actual data.
 	
 	So when you see a line like this:
 		
@@ -194,9 +205,9 @@ just the files.
 	
 		sed -i "s/myusername/john/g" setup.sh
 		
-	To see an example of a fully edited file, see find_replace.example (saved in the same directory of find_replace.sh).
+	To see an example of a fully edited file, see `find_replace.example` (saved in the same directory of find_replace.sh).
 	
-	These are the items to edit in find_replace.sh:
+	These are the items to edit in `find_replace.sh`:
 
 
 	Item to replace | Replace with
@@ -211,7 +222,7 @@ To change optional items, uncomment the line.
 
 	To change Optional items, uncomment the line.
 
-4. Run find_replace.sh. After you finished edit find_replace.sh, exit the editor and run the script:
+4. Run find_replace.sh. After you finished edit `find_replace.sh`, exit the editor and run the script:
 
         you@dev-machine$ ./find_replace.sh
           
@@ -221,23 +232,23 @@ To change optional items, uncomment the line.
 
 
 
-## Install
+## Auto Install
 
-From the command line, make sure you are in the one-click-django-dev directory, and that you run it with an Administrator account:
+From the command line, make sure you are in the `one-click-django-dev-osx-el-capitan` directory, and that you run it with an **Administrator** account:
      
      you@dev-machine# ./setup.sh
         
 *Note: The setup.sh will ask for the sudo password and MySQL root password*
 
 Thats' it! Browse to the local site at 127.0.0.1.
-If eveything works, you should see something like [this website example](website_osx_el_capitan.png)
+If eveything works, you should see something like [this website example](it_works_osx_el_capitan.png)
 
 
-The project is located in your home directory, at **~/myprojects/mysite** 
+**The project location:**
+The project is located in your home directory, at `~/myprojects/mysite`.    
+On the server, the project is located at the django user home directory at /`home/django/mysite/` (mysite will be the directory you provided with the `find_replace.sh`).
 
-*Note: On the server, the project is located at the django user home directory at /home/django/mysite/*
-
-A word about the IDE: Choosing an IDE is a personal preferene. If you don't have a prefered python IDE yet, I'll just mention Wing IDE Pro which I use for years and to me, it's the best Python IDE. It's built exactly for the "Python Zen", it's light, with django integration, git integration, excellent debugging and great support.
+**A word about the IDE:** Choosing an IDE is a personal preferene. If you don't have a prefered python IDE yet, I'll just mention Wing IDE Pro which I use for years and to me, it's the best Python IDE. It's built exactly for the "Python Zen", it's light, with django integration, git integration, excellent debugging and great support.
 
 ## What's Next?
 
@@ -246,19 +257,21 @@ The simplest deployment is really easy! After you develop, commit and push a cha
 
 	you@dev-machine: fab deploy
 	
-See [Deployment](https://github.com/aviah/one-click-django-docs/master/deployment.md)
-
-A detailed project documentation is avaialable in one-click-django-docs, with refrence to imports, templates, settings, files, directories, etc. 
-See [Docs](https://github.com/aviah/one-click-django-docs/master/readme_docs.md)
+See [Deployment](https://github.com/aviah/one-click-django-docs/blob/master/deployment.md).
 
 The project's [Playground](https://github.com/aviah/one-click-django-docs/master/readme_docs.md) let's you play and experiment a bit with the django-one-click project.
 
 If you are new to django, why not take our version to the official django polls tutorial. It implments the polls app in in this real development-deployment-production environment, with git.   
-When you finish this tutorial, the polls app will run on the real website at www.yourdommain.com/polls.    
-Start here [Part 1: Create the Polls App](https://github.com/aviah/one-click-django-docs/master/tutorial_part1.md) 
+When you finish this tutorial, the polls app will run on the real website at `www.yourdommain.com/polls`.    
+Start here [The django polls tutorial with deployment](https://github.com/aviah/one-one-click-django-polls-tutorial/) 
 
-To support this project with my affiliate link:| 
--|
+
+For a detailed project documentation with refrence to imports, templates, settings, files, directories, etc, see [one-click-django-docs](https://github.com/aviah/one-click-django-docs/)
+
+
+
+
+Support this project with my affiliate link| 
+-------------------------------------------|
 https://www.linode.com/?r=cc1175deb6f3ad2f2cd6285f8f82cefe1f0b3f46|
-	
-	
+
