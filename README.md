@@ -8,8 +8,8 @@ Local Dev Machine: OSX 10.11 El-Capitan
 [How?](#how)    
 [The Polls Tutorial with Deployment](#the-polls-tutorial-with-deployment)    
 [Pre-Requisits on your dev Mac](#pre-requisits-on-your-dev-mac)    
-[Install Prep](#install-pep)   
-[Auto Install](#auto-install)
+[Install Prep](#install-prep)   
+[Auto Install](#auto-install)    
 [What's Next](#whats-next) 
 
 
@@ -177,7 +177,7 @@ If you used **another machine** (not the Mac you are going to install the dev en
 		you@my-django-server# exit
 		you@my-django-server$ rm dev_id_rsa.pub
 		
-**To use the project fabric script for deployment, please use SSH key without a passphrase.**
+**To use the project's fabric script for deployment, please use SSH key without a passphrase.**
 
 
 
@@ -259,14 +259,14 @@ The simplest deployment is really easy! After you develop, commit and push a cha
 	
 See [Deployment](https://github.com/aviah/one-click-django-docs/blob/master/deployment.md).
 
-The project's [Playground](https://github.com/aviah/one-click-django-docs/master/readme_docs.md) let's you play and experiment a bit with the django-one-click project.
+The project's [Playground](https://github.com/aviah/one-click-django-docs/blob/master/playground.md) let's you play and experiment a bit with the django-one-click project.
 
 If you are new to django, why not take our version to the official django polls tutorial. It implments the polls app in in this real development-deployment-production environment, with git.   
 When you finish this tutorial, the polls app will run on the real website at `www.yourdommain.com/polls`.    
-Start here [The django polls tutorial with deployment](https://github.com/aviah/one-one-click-django-polls-tutorial/) 
+Start here [The django polls tutorial with deployment](https://github.com/aviah/one-click-django-polls-tutorial/) 
 
 
-For a detailed project documentation with refrence to imports, templates, settings, files, directories, etc, see [one-click-django-docs](https://github.com/aviah/one-click-django-docs/)
+For a detailed project documentation with refrences to imports, templates, settings, files, directories, logging etc, see [one-click-django-docs](https://github.com/aviah/one-click-django-docs/)
 
 
 
