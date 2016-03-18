@@ -186,9 +186,9 @@ If you used **another machine** (not the Mac you are going to install the dev en
 #### Step 3: Download & prepare the config files
 
 1. Download the one-click-django-dev-osx-el-capitan files. You don't need to clone a repo,
-just the files.
+just the files. Save to `one-click-django-dev-osx-el-capitan` directory (omit the "master" from the directory name if necessery).
 
-2. Open a command line, and cd to the one-click-django-dev directory
+2. Open a command line, and cd to the one-click-django-dev-osx-el-capitan:
 
         you@dev-machine$ cd one-click-django-dev-osx-el-capitan
        
